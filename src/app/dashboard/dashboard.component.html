@@ -1,0 +1,49 @@
+<div class="grid-container">
+
+  <strong>
+    <h1 id="title-dash">Dashboard</h1>
+  </strong>
+
+  <span id="data-icon"> 19 August, 2021, Thursday </span>
+  <mat-icon class="search-icon" aria-hidden="false" aria-label="Example search icon">search</mat-icon>
+
+  <!-- Welcome card -->
+  <mat-card class="welcome-card">
+    <img class="img-responsive-computer" src="https://beterre.life/wp-content/uploads/2020/12/femme-flat-design-detouree.png  " alt="Mulher usando computador">
+    <strong class="welcome">Welcome back Fernanda</strong>
+     <br>
+    <p> You're Welcome here.</p>
+  </mat-card>
+  
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+
+          <div>
+            <canvas>
+
+            </canvas>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+
